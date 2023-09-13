@@ -70,7 +70,7 @@ namespace MathQuiz_Верховский_2
             timesRightLabel.Text = multiplier.ToString();
             product.Value = 0;
 
-            // Fill in the division problem.
+            // Fill in the division proble m.
             divisor = randomizer.Next(2, 11);
             int temporaryQuotient = randomizer.Next(2, 11);
             dividend = divisor * temporaryQuotient;
