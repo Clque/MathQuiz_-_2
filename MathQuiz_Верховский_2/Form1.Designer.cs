@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.startButton = new System.Windows.Forms.Button();
             this.quotient = new System.Windows.Forms.NumericUpDown();
             this.Label11 = new System.Windows.Forms.Label();
@@ -50,7 +51,8 @@
             this.Label3 = new System.Windows.Forms.Label();
             this.plusLeftLabel = new System.Windows.Forms.Label();
             this.Label2 = new System.Windows.Forms.Label();
-            this.Label1 = new System.Windows.Forms.Label();
+            this.timeLabel = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.quotient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.product)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.difference)).BeginInit();
@@ -67,6 +69,7 @@
             this.startButton.TabIndex = 21;
             this.startButton.Text = "Начать тест";
             this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // quotient
             // 
@@ -75,6 +78,7 @@
             this.quotient.Name = "quotient";
             this.quotient.Size = new System.Drawing.Size(100, 41);
             this.quotient.TabIndex = 30;
+            this.quotient.Enter += new System.EventHandler(this.answer_enter);
             // 
             // Label11
             // 
@@ -123,6 +127,7 @@
             this.product.Name = "product";
             this.product.Size = new System.Drawing.Size(100, 41);
             this.product.TabIndex = 28;
+            this.product.Enter += new System.EventHandler(this.answer_enter);
             // 
             // Label5
             // 
@@ -171,6 +176,7 @@
             this.difference.Name = "difference";
             this.difference.Size = new System.Drawing.Size(100, 41);
             this.difference.TabIndex = 25;
+            this.difference.Enter += new System.EventHandler(this.answer_enter);
             // 
             // Label8
             // 
@@ -219,6 +225,8 @@
             this.sum.Name = "sum";
             this.sum.Size = new System.Drawing.Size(100, 41);
             this.sum.TabIndex = 23;
+            this.sum.Click += new System.EventHandler(this.answer_enter);
+            this.sum.Enter += new System.EventHandler(this.answer_enter);
             // 
             // plusRightLabel
             // 
@@ -270,14 +278,19 @@
             this.Label2.TabIndex = 24;
             this.Label2.Text = "Оставшееся время";
             // 
-            // Label1
+            // timeLabel
             // 
-            this.Label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Label1.Location = new System.Drawing.Point(410, 71);
-            this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(200, 30);
-            this.Label1.TabIndex = 22;
+            this.timeLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.timeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.timeLabel.Location = new System.Drawing.Point(410, 71);
+            this.timeLabel.Name = "timeLabel";
+            this.timeLabel.Size = new System.Drawing.Size(200, 30);
+            this.timeLabel.TabIndex = 22;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -306,7 +319,7 @@
             this.Controls.Add(this.Label3);
             this.Controls.Add(this.plusLeftLabel);
             this.Controls.Add(this.Label2);
-            this.Controls.Add(this.Label1);
+            this.Controls.Add(this.timeLabel);
             this.Name = "Form1";
             this.Text = "Математический тест";
             ((System.ComponentModel.ISupportInitialize)(this.quotient)).EndInit();
@@ -342,7 +355,8 @@
         internal System.Windows.Forms.Label Label3;
         internal System.Windows.Forms.Label plusLeftLabel;
         internal System.Windows.Forms.Label Label2;
-        internal System.Windows.Forms.Label Label1;
+        internal System.Windows.Forms.Label timeLabel;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
